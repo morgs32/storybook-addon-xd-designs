@@ -1,8 +1,5 @@
 <div align="center">
   
-  <img src="./packages/assets/logo.png" width="104" alt="logo">
-  <br/>
-
 [![npm version](https://badge.fury.io/js/storybook-addon-xd-designs.svg)](https://badge.fury.io/js/storybook-addon-xd-designs)
 [![Monthly download](https://img.shields.io/npm/dm/storybook-addon-xd-designs.svg)](https://www.npmjs.com/package/storybook-addon-xd-designs)
 [![GitHub license](https://img.shields.io/github/license/pocka/storybook-addon-xd-designs.svg)](https://github.com/pocka/storybook-addon-xd-designs/blob/master/LICENSE)
@@ -14,15 +11,17 @@
 
 ## storybook-addon-xd-designs
 
-A [Storybook](https://github.com/storybooks/storybook) addon that embed Figma or websites in the addon panel for better design-development workflow.
+A [Storybook](https://github.com/storybooks/storybook) addon that embeds 
+Adobe XD specs in your addon panel for better design-development workflow.
 
-- [Demo](https://pocka.github.io/storybook-addon-xd-designs)
+- [Demo](https://morgs32.github.io/storybook-addon-xd-designs)
 
 ## Requirements
 
 - Storybook@>=5.0.0
 
-This addon should work well with any framework: If you find the case the addon not works, please open an issue.
+This addon should work well with any framework.
+If you find the case the addon not works, please open an issue.
 
 ## Getting started
 
@@ -30,7 +29,10 @@ This addon should work well with any framework: If you find the case the addon n
 
 ```sh
 npm install --save-dev storybook-addon-xd-designs
-# yarn add -D storybook-addon-xd-designs
+```
+or 
+```sh
+yarn add -D storybook-addon-xd-designs
 ```
 
 2. Register the addon in `addons.js`
@@ -50,43 +52,17 @@ storiesOf('My stories', module)
   .addDecorator(withXD)
   .add('My awesome story', () => <Button>Hello, World!</Button>, {
     design: {
-      type: 'figma',
-      url: 'https://www.figma.com/file/LKQ4FJ4bTnCSjedbRpk931/Sample-File'
+      specUrl: '',
+      reviewUrl: '',
     }
   })
 ```
 
 ## Usage
 
-Add `withXD` decorator then put `design` parameter to your story.
+Add `withXD` decorator then put `design` parameter after your story.
 
 > NOTE: If you omit `design` parameter, the addon does nothing.
-
-The type of `design` parameter is differ by embed type.
-For more detailed information, see [type definition file](./packages/storybook-addon-xd-designs/src/config.ts).
-
-### Available types
-
-- `iframe` ... Embed `<iframe/>`.
-- `figma` ... Embed [Figma Live Embed Kit](https://www.figma.com/developers/embed).
-- `pdf` ... Embed PDF document.
-- `image` ... Embed image.
-
-### Utility dumb function
-
-If you want type support for type checking or IDE auto completion, use exported [`config` function](./packages/storybook-addon-xd-designs/src/index.ts#L24).
-
-```ts
-import { config } from 'storybook-addon-xd-designs'
-
-storiesOf('foo', module).add('bar', () => <Button>Hello, World!</Button>, {
-  design: config({
-    // IDE would auto complete keys and `type` values!
-    type: 'iframe',
-    url: 'https://www.figma.com/file/LKQ4FJ4bTnCSjedbRpk931/Sample-File'
-  })
-})
-```
 
 ### Multiple designs for single story
 
@@ -109,4 +85,4 @@ design: [
 
 ## Similar projects
 
-- [storybook-addon-figma](https://github.com/hharnisc/storybook-addon-figma)
+- [storybook-addon-designs](https://github.com/pocka/storybook-addon-designs)
