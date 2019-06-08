@@ -1,6 +1,6 @@
 {
   "name": "examples",
-  "version": "5.1.0",
+  "version": "5.1.1",
   "private": true,
   "dependencies": {
     "@emotion/core": "^10.0.9",
@@ -10,14 +10,14 @@
     "@babel/core": "^7.4.0",
     "@babel/plugin-transform-react-jsx": "^7.3.0",
     "@babel/preset-env": "^7.4.2",
-    "storybook-addon-xd-designs-assets": "^5.0.0",
     "@storybook/addon-actions": "^5.0.3",
     "@storybook/addon-links": "^5.0.3",
     "@storybook/addons": "^5.0.3",
     "@storybook/react": "^5.0.3",
     "@storybook/theming": "^5.0.3",
     "babel-loader": "^8.0.5",
-    "storybook-addon-xd-designs": "^5.1.0"
+    "storybook-addon-xd-designs": "^5.1.1",
+    "storybook-addon-xd-designs-assets": "^5.1.1"
   },
   "scripts": {
     "storybook": "start-storybook -p 6006 -s ../assets",
