@@ -1,5 +1,6 @@
 {
   "name": "workspace",
+  "version": "0.0.0",
   "repository": "git@github.com:morgs32/storybook-addon-xd-designs.git",
   "private": true,
   "workspaces": [
@@ -14,7 +15,8 @@
     "dev": "lerna run dev --stream",
     "example": "lerna run storybook --scope examples --stream",
     "example:build": "lerna run build-storybook --stream",
-    "now-build": "yarn build && yarn example:build"
+    "now-build": "yarn build && yarn example:build",
+    "ci:version": "lerna version --conventional-commits --github-release --yes"
   },
   "prettier": {
     "semi": false,
