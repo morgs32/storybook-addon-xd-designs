@@ -1,0 +1,47 @@
+{
+  "name": "storybook-addon-xd-designs",
+  "version": "5.1.0",
+  "description": "Storybook addon for embedding your Adobe XD design preview in addon panel",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "repository": "git@github.com:morgs32/storybook-addon-xd-designs.git",
+  "homepage": "https://github.com/morgs32/storybook-addon-xd-designs",
+  "author": "morgs32 <morgan.intrator@gmail.com>",
+  "license": "MIT",
+  "files": [
+    "lib",
+    "register.js"
+  ],
+  "devDependencies": {
+    "@storybook/addons": "^5.0.3",
+    "@storybook/components": "^5.0.3",
+    "@storybook/core-events": "^5.0.3",
+    "@storybook/theming": "^5.0.3",
+    "@types/lodash": "^4.14.134",
+    "@types/pdfjs-dist": "^2.0.0",
+    "@types/react": "^16.8.8",
+    "@types/webpack-env": "^1.13.9",
+    "react": "^16.8.4",
+    "typescript": "^3.3.4000"
+  },
+  "peerDependencies": {
+    "@storybook/addons": "^5.0.0",
+    "@storybook/components": "^5.0.0",
+    "@storybook/theming": "^5.0.0",
+    "react": ">=16.8.0"
+  },
+  "scripts": {
+    "dev": "tsc --watch --preserveWatchOutput",
+    "build": "tsc",
+    "test": "echo 'No tests' && exit 0",
+    "clean": "rm -r lib",
+    "prepublishOnly": "cp ../../README.md ./ && yarn build"
+  },
+  "dependencies": {
+    "lodash": "^4.17.11",
+    "react-pdf": "^4.0.5"
+  },
+  "publishConfig": {
+    "tag": "latest"
+  }
+}
