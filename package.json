@@ -16,7 +16,7 @@
     "example": "lerna run storybook --scope examples --stream",
     "example:build": "lerna run build-storybook --stream",
     "now-build": "yarn build && yarn example:build",
-    "lerna:version": "lerna version --conventional-commits --github-release --yes"
+    "lerna:version": "lerna version --conventional-commits --yes"
   },
   "prettier": {
     "semi": false,
