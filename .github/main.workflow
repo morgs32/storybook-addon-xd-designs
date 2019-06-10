@@ -1,6 +1,6 @@
 workflow "master" {
   on = "push"
-  resolves = ["Deploy examples", "Publish"]
+  resolves = ["Deploy examples"]
 }
 
 action "Ensure master" {
@@ -41,15 +41,19 @@ action "Deploy examples" {
   ]
 }
 
+workflow "version" {
+  on = "push"
+  resolves = ["Publish"]
+}
+
 # Publish on a new tag
 action "Ensure version" {
-  needs = "Build"
   uses = "actions/bin/filter@master"
   args = "tag"
 }
 
 action "Publish" {
-  needs = "Ensure version"
+  needs = ["Ensure version", "Build"]
   uses = "actions/npm@master"
   args = "lerna publish from-package -y"
   secrets = [
