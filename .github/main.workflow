@@ -1,68 +1,57 @@
 workflow "master" {
   on = "push"
-  resolves = ["[master] Deploy examples"]
+  resolves = ["Deploy examples", "Publish"]
 }
 
-action "[master] Ensure branch" {
+action "Ensure master" {
   uses = "actions/bin/filter@master"
   args = "branch master"
 }
 
 
-action "[master] Install" {
+action "Install" {
   uses = "docker://node:10"
   runs = "yarn"
   args = "install"
-  needs = ["[master] Ensure branch"]
+  needs = ["Ensure master"]
 }
 
-action "[master] Build" {
+action "Build" {
   uses = "docker://node:10"
   runs = "yarn"
   args = "build"
-  needs = ["[master] Install"]
+  needs = ["Install"]
 }
 
-action "[master] Build examples" {
+action "Build examples" {
   uses = "docker://node:10"
   runs = "yarn"
   args = "example:build"
-  needs = ["[master] Build"]
+  needs = ["Build"]
 }
 
-action "[master] Deploy examples" {
+action "Deploy examples" {
   uses = "maxheld83/ghpages@v0.2.1"
   env = {
     BUILD_DIR = "packages/examples/storybook-static/"
   }
-  needs = ["[master] Build examples"]
+  needs = ["Build examples"]
   secrets = [
     "GH_PAT"
   ]
 }
 
-workflow "publish" {
-  on = "push"
-  resolves = ["[publish] Publish package"]
-}
-
-action "[publish] Ensure branch" {
+# Publish on a new tag
+action "Ensure version" {
+  needs = "Build"
   uses = "actions/bin/filter@master"
   args = "tag"
 }
 
-action "[publish] Install" {
-  uses = "docker://node:10"
-  runs = "yarn"
-  args = "install"
-  needs = ["[publish] Ensure branch"]
-}
-
-action "[publish] Publish package" {
-  uses = "docker://node:10"
-  runs = "npx"
+action "Publish" {
+  needs = "Ensure version"
+  uses = "actions/npm@master"
   args = "lerna publish from-package -y"
-  needs = ["[publish] Install"]
   secrets = [
     "NPM_AUTH_TOKEN"
   ]
