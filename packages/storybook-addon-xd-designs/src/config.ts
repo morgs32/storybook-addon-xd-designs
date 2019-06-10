@@ -16,6 +16,7 @@ export interface IFrameConfigBase extends ConfigBase {
    */
   screenUrl: string
 
+  
   /**
    * The URL to open in a new tab
    */
