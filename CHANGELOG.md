@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.1.3](https://github.com/morgs32/storybook-addon-xd-designs/compare/v5.1.2...v5.1.3) (2019-06-10)
+
+
+### Bug Fixes
+
+* no releases ([7d82b6d](https://github.com/morgs32/storybook-addon-xd-designs/commit/7d82b6d))
+* use iframeConfig.isValid ([16d749d](https://github.com/morgs32/storybook-addon-xd-designs/commit/16d749d))
+
+
+
+
+
 ## [5.1.2](https://github.com/morgs32/storybook-addon-xd-designs/compare/v5.1.1...v5.1.2) (2019-06-10)
 
 
