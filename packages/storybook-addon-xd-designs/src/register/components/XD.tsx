@@ -29,16 +29,16 @@ export const XD: SFC<Props> = ({ config }) => {
     const isValid = Boolean(reviewId && screenId && artboard)
     const screenUrl = isValid ? `https://xd.adobe.com/embed/${reviewId}/screen/${screenId}/${artboard}?fullscreen` : ''
 
+    console.log('reviewId, artboard, screenId', reviewId, artboard, screenId);
 
     return {
-      isValid: false,
+      isValid,
       specUrl: config.specUrl,
       screenUrl
     }
   }, [config.specUrl, config.reviewUrl, config.embedHost])
 
-
-  if (!config.isValid) {
+  if (!iframeConfig.isValid) {
     return (
       <Placeholder>
         <Fragment>Invalid config type</Fragment>
