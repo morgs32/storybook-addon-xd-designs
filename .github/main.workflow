@@ -60,7 +60,7 @@ action "[publish] Install" {
 
 action "[publish] Publish package" {
   uses = "docker://node:10"
-  runs = "yarn"
+  runs = "npx"
   args = "lerna publish from-package -y"
   needs = ["[publish] Install"]
   secrets = [
