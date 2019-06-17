@@ -9,7 +9,7 @@
 
 <hr/>
 
-## storybook-addon-xd-designs
+# storybook-addon-xd-designs
 
 A storybook addon that embeds 
 Adobe XD specs in your addon panel for better design-development workflow.
