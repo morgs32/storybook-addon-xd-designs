@@ -36,6 +36,11 @@ If not, open an issue.
     ```sh
     yarn add -D storybook-addon-xd-designs
     ```
+    Make sure you have these peer dependencies installed:
+    - `@storybook/addons` 
+    - `@storybook/components`
+    - `@storybook/theming`
+    
 2. Register the addon in `addons.js`
     ```js
     // .storybook/addons.js
