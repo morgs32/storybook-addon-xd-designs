@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.3.0](https://github.com/morgs32/storybook-addon-xd-designs/compare/v5.1.3...v5.3.0) (2019-06-27)
+
+
+### Features
+
+* upgrades to 5.1.1 in examples ([3d1f0d1](https://github.com/morgs32/storybook-addon-xd-designs/commit/3d1f0d1))
+
+
+
+
+
 # [5.2.0](https://github.com/morgs32/storybook-addon-xd-designs/compare/v5.1.3...v5.2.0) (2019-06-27)
 
 
