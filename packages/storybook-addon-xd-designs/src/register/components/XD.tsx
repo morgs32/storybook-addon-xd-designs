@@ -29,7 +29,7 @@ export const XD: SFC<Props> = ({ config }) => {
     const isValid = Boolean(reviewId && screenId && artboard)
     const screenUrl = isValid ? `https://xd.adobe.com/embed/${reviewId}/screen/${screenId}/${artboard}?fullscreen` : ''
 
-    console.log('reviewId, artboard, screenId', reviewId, artboard, screenId);
+    console.log('reviewId, artboard, screenId', reviewId, artboard, screenId)
 
     return {
       isValid,
@@ -68,14 +68,14 @@ export const XD: SFC<Props> = ({ config }) => {
           allowFullScreen
         />
       </div>
-      <div css={$utility}>
-        <a
-          href={iframeConfig.specUrl}
-          target="_blank"
-        >
-          Go to spec
-        </a>
-      </div>
+      <a
+        css={$utility}
+        href={iframeConfig.specUrl}
+        target="_blank"
+      >
+        Go
+        to spec
+      </a>
     </div>
   )
 }
@@ -88,9 +88,11 @@ const $iframeContainer = css`
   bottom: -70px;
 `
 const $utility = css`
+  box-shadow: 0px 6px 8px 2px #333;
   height: 26px;
+  font-family: monospace;
   font-weight: bold;
-  color: rebeccapurple;
+  text-transform: uppercase;
   line-height: 26px;
   text-align: center; 
   position: absolute;
@@ -98,7 +100,11 @@ const $utility = css`
   left: 0;
   right: 0;
   z-index: 10;
-  background: papayawhip;
+  background: #0f2027; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #0f2027, #203a43, #2c5364); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
+  color: white;
+  text-decoration: none;
 `
 
 const $container = css`
