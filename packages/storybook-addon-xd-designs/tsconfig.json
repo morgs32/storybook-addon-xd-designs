@@ -5,10 +5,12 @@
     "target": "es2015",
     "module": "es2015",
     "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
     "jsx": "react",
     "declaration": true,
+    "skipLibCheck": true,
     "outDir": "lib"
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.d.ts"],
-  "exclude": ["node_modules", "lib"]
+  "exclude": ["**/node_modules","node_modules", "lib"]
 }

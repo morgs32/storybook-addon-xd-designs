@@ -8,7 +8,6 @@ action "Ensure master" {
   args = "branch master"
 }
 
-
 action "Install" {
   uses = "docker://node:10"
   runs = "yarn"
