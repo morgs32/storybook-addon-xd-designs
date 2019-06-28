@@ -60,10 +60,9 @@ If not, open an issue.
         }
       })
     ```
-    How to find your `specUrl` and `reviewUrl`:
-    1. <img alt="Step 1 to getting your xd URLs" src="./HowTo1.png" width="200" />
-    1. <img alt="Step 2 to getting your xd URLs" src="./HowTo2.png" width="200" />
-    1. <img alt="Step 3 to getting your xd URLs" src="./HowTo3.png" width="200" />
+    [How to find your `specUrl` and `reviewUrl`:](https://xd.adobe.com/view/9c3f3303-01b1-444b-6615-52a130609138-ea0e/)
+    
+    [![How To](./Group607.png)](https://xd.adobe.com/view/9c3f3303-01b1-444b-6615-52a130609138-ea0e/)
 
 ## Usage
 
