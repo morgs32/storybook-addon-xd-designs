@@ -2,7 +2,7 @@
 import { Fragment, SFC, useEffect, useState } from 'react'
 import { jsx } from '@storybook/theming'
 import addons from '@storybook/addons'
-import { STORY_CHANGED } from '@storybook/core-events'
+import { STORY_CHANGED, STORY_RENDERED } from '@storybook/core-events'
 
 import { Link, Placeholder, TabsState } from '@storybook/components'
 
@@ -26,24 +26,28 @@ export const Wrapper: SFC<Props> = ({ active, api, channel }) => {
   useEffect(() => {
     const onStoryChanged = (id: string) => {
       changeStory(id)
-
-      const cfg = api.getParameters(id, ParameterName)
-
-      if (cfg !== config) {
-        setConfig(cfg)
+      const newConfig = api.getParameters(id, ParameterName)
+      if (newConfig !== config) {
+        setConfig(newConfig)
       }
     }
 
+    const handleInitialRender = (id: string) => {
+      onStoryChanged(id);
+      channel.removeListener(STORY_CHANGED, handleInitialRender)
+    }
     channel.on(Events.UpdateConfig, setConfig)
     channel.on(STORY_CHANGED, onStoryChanged)
+    channel.on(STORY_RENDERED, handleInitialRender)
 
     return () => {
       channel.removeListener(Events.UpdateConfig, setConfig)
       channel.removeListener(STORY_CHANGED, onStoryChanged)
     }
   }, [])
+  
 
-  if (!active) {
+  if (!active || !storyId) {
     return null
   }
 
