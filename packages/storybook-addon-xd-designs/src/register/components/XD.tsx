@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { Fragment, SFC, useMemo } from 'react'
+import { Fragment, SFC, useEffect, useMemo } from 'react'
 import { css, jsx } from '@storybook/theming'
 
 import { XDConfig, IFrameConfigBase } from '../../config'
@@ -58,7 +58,6 @@ export const XD: SFC<Props> = ({ config }) => {
 
   return (
     <div css={$container}>
-      <Placeholder css={$loading}>Loading...</Placeholder>
       <div css={$iframeContainer}>
         <iframe
           css={$iframe}
@@ -71,8 +70,7 @@ export const XD: SFC<Props> = ({ config }) => {
         href={iframeConfig.specUrl}
         target="_blank"
       >
-        Go
-        to spec
+        Go to spec
       </a>
     </div>
   )
@@ -83,7 +81,7 @@ const $iframeContainer = css`
   left: 0;
   right: 0;
   top: 0;
-  bottom: -70px;
+  bottom: 0;
 `
 const $utility = css`
   box-shadow: 0px 6px 8px 2px #333;
@@ -128,6 +126,6 @@ const $iframe = css`
   width: 100%;
   height: 100%;
   border: none;
-  margin-bottom: 96px;
+  margin-bottom: 0;
   z-index: 1;
 `

@@ -18,7 +18,7 @@ export const withXD = makeDecorator({
 })
 
 /**
- * Dumb function to ensure typings or enchance IDE auto completion.
+ * Dumb function to ensure typings or enhance IDE auto completion.
  */
 export const config = (c: Config | Config[]) => c
 
