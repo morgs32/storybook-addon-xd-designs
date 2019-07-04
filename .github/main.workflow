@@ -1,6 +1,6 @@
 workflow "master" {
   on = "push"
-  resolves = ["Deploy examples"]
+  resolves = ["Deploy examples", "Publish"]
 }
 
 action "Ensure master" {
@@ -9,24 +9,24 @@ action "Ensure master" {
 }
 
 action "Install" {
+  needs = ["Ensure master"]
   uses = "docker://node:10"
   runs = "yarn"
   args = "install"
-  needs = ["Ensure master"]
 }
 
 action "Build" {
+  needs = ["Install"]
   uses = "docker://node:10"
   runs = "yarn"
   args = "build"
-  needs = ["Install"]
 }
 
 action "Build examples" {
+  needs = ["Build"]
   uses = "docker://node:10"
   runs = "yarn"
   args = "example:build"
-  needs = ["Build"]
 }
 
 action "Deploy examples" {
@@ -40,19 +40,8 @@ action "Deploy examples" {
   ]
 }
 
-workflow "version" {
-  on = "push"
-  resolves = ["Publish"]
-}
-
-# Publish on a new tag
-action "Ensure version" {
-  uses = "actions/bin/filter@master"
-  args = "tag"
-}
-
 action "Publish" {
-  needs = ["Ensure version", "Build"]
+  needs = ["Build"]
   uses = "actions/npm@master"
   args = "run ci:publish"
   secrets = [
