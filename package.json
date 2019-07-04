@@ -15,8 +15,8 @@
     "dev": "lerna run dev --stream",
     "example": "lerna run storybook --scope examples --stream",
     "example:build": "lerna run build-storybook --stream",
-    "now-build": "yarn build && yarn example:build",
-    "lerna:version": "lerna version --conventional-commits --yes"
+    "lerna:version": "lerna version --conventional-commits --yes",
+    "ci:publish": "lerna publish from-package --yes"
   },
   "prettier": {
     "semi": false,

@@ -54,7 +54,7 @@ action "Ensure version" {
 action "Publish" {
   needs = ["Ensure version", "Build"]
   uses = "actions/npm@master"
-  args = "lerna publish from-package -y"
+  args = "run ci:publish"
   secrets = [
     "NPM_AUTH_TOKEN"
   ]
