@@ -25,7 +25,14 @@ jobs:
           github_token: ${{ secrets.GH_PAT }}
           publish_dir: ./packages/examples/storybook-static/
 
-      - run: npm run ci:publish
+      - name: Authenticate with Registry
+        run: |
+          yarn logout
+          echo "registry=http://registry.npmjs.org/" >> .npmrc
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
+          npm whoami
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - run: npm run ci:publish
 
