@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`XD parseReviewUrl works 1`] = `
+Array [
+  "https://xd.adobe.com/view/813cbece-c467-47ce-67e3-b60caacc2ff8-f70d",
+  "813cbece-c467-47ce-67e3-b60caacc2ff8-f70d",
+]
+`;
+
+exports[`XD parseSpecUrl works 1`] = `
+Array [
+  "https://xd.adobe.com/spec/181eaf80-9e7a-4ea6-7dc8-e21dfd9b2d80-6e2f/screen/58270c9e-502b-4737-be32-a5dfe9523bb5/Buttons/",
+  "58270c9e-502b-4737-be32-a5dfe9523bb5",
+  "Buttons",
+]
+`;

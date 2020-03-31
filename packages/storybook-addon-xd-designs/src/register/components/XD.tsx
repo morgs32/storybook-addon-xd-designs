@@ -7,10 +7,10 @@ import { Link, Placeholder } from '@storybook/components'
 
 const _get = require('lodash/get')
 
-const parseReviewUrl = (url: string) =>
-  url && url.match(/https:\/\/xd.adobe.com\/view\/(?<reviewId>[0-9a-zA-Z-]{22,128})/)
-const parseSpecUrl = (url: string) =>
-  url && url.match(/https:\/\/xd.adobe.com\/spec\/(?<specId>[0-9a-zA-Z-]{22,128})\/screen\/(?<screenId>[0-9a-zA-Z-]{22,128})\/(?<artboard>[^\/]*)\/?$/)
+export const parseReviewUrl = (url: string) =>
+  url && url.match(/https:\/\/xd.adobe.com\/view\/([0-9a-zA-Z-]{22,128})/)
+export const parseSpecUrl = (url: string) =>
+  url && url.match(/https:\/\/xd.adobe.com\/spec\/[0-9a-zA-Z-]{22,128}\/screen\/([0-9a-zA-Z-]{22,128})\/([^\/]*)\/?$/)
 
 interface Props {
   config: XDConfig
@@ -23,9 +23,9 @@ export const XD: SFC<Props> = ({ config }) => {
     const parsedReviewUrl = parseReviewUrl(config.reviewUrl)
     const parsedSpecUrl = parseSpecUrl(config.specUrl)
 
-    const reviewId = _get(parsedReviewUrl, 'groups.reviewId')
-    const screenId = _get(parsedSpecUrl, 'groups.screenId')
-    const artboard = _get(parsedSpecUrl, 'groups.artboard')
+    const reviewId = _get(parsedReviewUrl, '1')
+    const screenId = _get(parsedSpecUrl, '1')
+    const artboard = _get(parsedSpecUrl, '2')
     const isValid = Boolean(reviewId && screenId && artboard)
     const screenUrl = isValid ? `https://xd.adobe.com/embed/${reviewId}/screen/${screenId}/${artboard}?fullscreen` : ''
 
@@ -70,7 +70,7 @@ export const XD: SFC<Props> = ({ config }) => {
         href={iframeConfig.specUrl}
         target="_blank"
       >
-        Go to spec
+        Visit spec in Adobe XD <span className="XD__rightArrow">→</span>
       </a>
     </div>
   )
@@ -86,21 +86,36 @@ const $iframeContainer = css`
 const $utility = css`
   box-shadow: 0px 6px 8px 2px #333;
   height: 26px;
-  font-family: monospace;
+  font-family: sans-serif;
   font-weight: bold;
-  text-transform: uppercase;
   line-height: 26px;
-  text-align: center; 
+  text-align: center;
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: 10;
-  background: #0f2027; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #0f2027, #203a43, #2c5364); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #0f2027, #203a43, #2c5364); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
+  background-image: linear-gradient(to right, #f6d365 0%, #fda085 51%, #f6d365 100%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-size: 200% auto;
+  will-change: background-position;
+  transition: background-position .4s ease;
   color: white;
   text-decoration: none;
+
+  .XD__rightArrow {
+    position: relative;
+    left: 0px;
+    will-change: left;
+    transition: left .3s ease;
+  }
+
+  &:hover {
+    background-position: right center;
+
+    .XD__rightArrow {
+      left: 5px;
+    }
+  }
 `
 
 const $container = css`
