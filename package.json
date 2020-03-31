@@ -12,6 +12,7 @@
   },
   "scripts": {
     "build": "lerna run build --stream",
+    "test": "lerna run test --stream",
     "dev": "lerna run dev --stream",
     "example": "lerna run storybook --scope examples --stream",
     "example:build": "lerna run build-storybook --stream",

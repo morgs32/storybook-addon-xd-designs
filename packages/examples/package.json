@@ -20,6 +20,7 @@
   },
   "scripts": {
     "storybook": "start-storybook -p 6006 -s ../assets",
+    "test": "echo 'No tests' && exit 0",
     "build-storybook": "build-storybook -s ../assets"
   },
   "babel": {
