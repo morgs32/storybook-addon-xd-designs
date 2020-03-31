@@ -7,8 +7,8 @@
     "packages/*"
   ],
   "devDependencies": {
-    "lerna": "^3.13.1",
-    "prettier": "^1.16.4"
+    "lerna": "^3.20.2",
+    "prettier": "^2.0.2"
   },
   "scripts": {
     "build": "lerna run build --stream",

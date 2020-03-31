@@ -4,31 +4,22 @@
   "private": true,
   "dependencies": {
     "@emotion/core": "^10.0.9",
-    "react": "^16.8.4"
+    "react": "^16.13.1"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
-    "@babel/plugin-transform-react-jsx": "^7.9.4",
-    "@babel/preset-env": "^7.9.0",
-    "@storybook/addon-actions": "^5.1.1",
-    "@storybook/addon-links": "^5.1.1",
-    "@storybook/addons": "^5.1.1",
-    "@storybook/react": "^5.1.1",
-    "@storybook/theming": "^5.1.1",
+    "@storybook/addon-actions": "^5.3.18",
+    "@storybook/addon-links": "^5.3.18",
+    "@storybook/addons": "^5.3.18",
+    "@storybook/react": "^5.3.18",
+    "@storybook/theming": "^5.3.18",
     "babel-loader": "^8.0.5",
+    "serve": "^11.3.0",
     "storybook-addon-xd-designs": "^5.4.0"
   },
   "scripts": {
     "storybook": "start-storybook -p 6006 -s ../assets",
     "test": "echo 'No tests' && exit 0",
     "build-storybook": "build-storybook -s ../assets"
-  },
-  "babel": {
-    "presets": [
-      "@babel/preset-env"
-    ],
-    "plugins": [
-      "@babel/plugin-transform-react-jsx"
-    ]
   }
 }
