@@ -6,8 +6,7 @@ on:
       - master
 
 jobs:
-  test:
-    name: Test and lint
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -15,6 +14,16 @@ jobs:
         with:
           node-version: 10
       - run: npm install -g yarn
+
+      - name: Authenticate with Registry
+        run: |
+          yarn logout
+          echo "registry=http://registry.npmjs.org/" >> .npmrc
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
+          npm whoami
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+
       - run: yarn
       - run: yarn build
       - run: yarn example:build
@@ -24,15 +33,6 @@ jobs:
         with:
           github_token: ${{ secrets.GH_PAT }}
           publish_dir: ./packages/examples/storybook-static/
-
-      - name: Authenticate with Registry
-        run: |
-          yarn logout
-          echo "registry=http://registry.npmjs.org/" >> .npmrc
-          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
-          npm whoami
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - run: npm run ci:publish
 
