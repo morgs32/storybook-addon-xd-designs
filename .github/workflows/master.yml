@@ -1,0 +1,31 @@
+name: Deploy & Publish
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  test:
+    name: Test and lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10
+      - run: npm install -g yarn
+      - run: yarn
+      - run: yarn build
+      - run: yarn example:build
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GH_PAT }}
+          publish_dir: ./packages/examples/storybook-static/
+
+      - run: npm run ci:publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
+
