@@ -6,7 +6,7 @@ import { STORY_CHANGED, STORY_RENDERED } from '@storybook/core-events'
 
 import { Link, Placeholder, TabsState } from '@storybook/components'
 
-import { Config } from '../../config'
+import { XDConfig } from '../../config'
 import { Events, ParameterName } from '../../addon'
 
 import { XD } from './XD'
@@ -20,7 +20,7 @@ interface Props {
 }
 
 export const Wrapper: SFC<Props> = ({ active, api, channel }) => {
-  const [config, setConfig] = useState<Config | Config[]>()
+  const [config, setConfig] = useState<XDConfig | XDConfig[]>()
   const [storyId, changeStory] = useState<string>()
 
   useEffect(() => {
@@ -28,7 +28,7 @@ export const Wrapper: SFC<Props> = ({ active, api, channel }) => {
       changeStory(id)
       const newConfig = api.getParameters(id, ParameterName)
       if (newConfig !== config) {
-        setConfig(newConfig)
+        setConfig(newConfig);
       }
     }
 
@@ -36,7 +36,11 @@ export const Wrapper: SFC<Props> = ({ active, api, channel }) => {
       onStoryChanged(id);
       channel.removeListener(STORY_CHANGED, handleInitialRender)
     }
-    channel.on(Events.UpdateConfig, setConfig)
+    channel.on(Events.UpdateConfig, (config) => {
+      if (config === '_undefined_') {
+        setConfig(void 0)
+      }
+    })
     channel.on(STORY_CHANGED, onStoryChanged)
     channel.on(STORY_RENDERED, handleInitialRender)
 
@@ -45,16 +49,19 @@ export const Wrapper: SFC<Props> = ({ active, api, channel }) => {
       channel.removeListener(STORY_CHANGED, onStoryChanged)
     }
   }, [])
-  
+
 
   if (!active || !storyId) {
     return null
   }
 
-  if (!config || ('length' in config && config.length === 0)) {
+  if (
+    !config
+    || (Array.isArray(config) && config.length && config.length === 0)
+  ) {
     return (
       <Placeholder>
-        <Fragment>No designs found</Fragment>
+        <div style={{ paddingBottom: 4 }}>No designs found</div>
         <Fragment>
           Learn how to{' '}
           <Link
@@ -71,15 +78,24 @@ export const Wrapper: SFC<Props> = ({ active, api, channel }) => {
     )
   }
 
-  const panels = [...(config instanceof Array ? config : [config])].map<
+
+  let configs : XDConfig[];
+  if (Array.isArray(config)) {
+    configs = config;
+  }
+  else {
+    configs = [config];
+  }
+
+  const panels = configs.map<
     [JSX.Element, { id: string; title: string }]
-  >((cfg, i) => {
+  >((config: XDConfig, i) => {
     const meta = {
       id: `addon-designs-tab--${i}`,
-      title: cfg.name || 'XD Design',
+      title: config.name || 'XD Design',
     }
 
-    return [<XD config={cfg} />, meta]
+    return [<XD config={config} />, meta]
 
   })
 

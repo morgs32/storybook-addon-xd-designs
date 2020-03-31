@@ -26,7 +26,7 @@ export interface IFrameConfigBase extends ConfigBase {
 /**
  * Render Adobe XD Live Preview.
  */
-export interface XDConfig extends IFrameConfigBase {
+export type XDConfig = IFrameConfigBase & {
   specUrl: string,
   reviewUrl: string,
 
