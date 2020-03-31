@@ -39,7 +39,7 @@ export const XD: SFC<Props> = ({ config }) => {
   if (!iframeConfig.isValid) {
     return (
       <Placeholder>
-        <Fragment>Invalid config type</Fragment>
+        <div style={{ paddingBottom: 4 }}>Invalid config type</div>
         <Fragment>
           That design config is not valid. Please check the {' '}
           <Link

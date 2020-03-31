@@ -1,7 +1,7 @@
 import addons, { makeDecorator, StoryWrapper } from '@storybook/addons'
 
 import { Events, ParameterName } from './addon'
-import { Config } from './config'
+import { XDConfig } from './config'
 
 const wrapper: StoryWrapper = (getStory, context, { parameters }) => {
   const channel = addons.getChannel()
@@ -20,7 +20,7 @@ export const withXD = makeDecorator({
 /**
  * Dumb function to ensure typings or enhance IDE auto completion.
  */
-export const config = (c: Config | Config[]) => c
+export const config = (c: XDConfig | XDConfig[]) => c
 
 if (module && module.hot && module.hot.decline) {
   module.hot.decline()
