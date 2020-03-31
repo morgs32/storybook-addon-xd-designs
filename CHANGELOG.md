@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.4.0](https://github.com/morgs32/storybook-addon-xd-designs/compare/v5.3.1...v5.4.0) (2020-03-31)
+
+
+### Bug Fixes
+
+* fixes workflow ([c99348f](https://github.com/morgs32/storybook-addon-xd-designs/commit/c99348f))
+* removes named regex capture grps ([8548891](https://github.com/morgs32/storybook-addon-xd-designs/commit/8548891)), closes [#5](https://github.com/morgs32/storybook-addon-xd-designs/issues/5)
+
+
+### Features
+
+* updates workflows ([8aecb65](https://github.com/morgs32/storybook-addon-xd-designs/commit/8aecb65))
+
+
+
+
+
 ## [5.3.1](https://github.com/morgs32/storybook-addon-xd-designs/compare/v5.1.3...v5.3.1) (2019-07-04)
 
 
