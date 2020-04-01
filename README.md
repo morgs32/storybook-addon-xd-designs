@@ -47,7 +47,8 @@ If not, open an issue.
     
     import 'storybook-addon-xd-designs/register'
     ```
-3. Add it to story!
+3. Add your spec to the story!
+
     ```js
     import { withXD } from 'storybook-addon-xd-designs'
     
@@ -55,14 +56,35 @@ If not, open an issue.
       .addDecorator(withXD)
       .add('My awesome story', () => <Button>Hello, World!</Button>, {
         design: {
+          artboardUrl: 'https://xd.adobe.com/view/ae7472ea-b4ac-47c4-4eb9-7aff91446d91-d845/screen/ca95c951-f010-498f-84c6-1cf10f344616/Desktop',
+        }
+      })
+
+       // Or, if it's 2019, you would have to use two urls like this:
+      .add('My awesome story', () => <Button>Hello, World!</Button>, {
+        design: {
           specUrl: 'https://xd.adobe.com/spec/181eaf80-9e7a-4ea6-7dc8-e21dfd9b2d80-6e2f/screen/58270c9e-502b-4737-be32-a5dfe9523bb5/Color/',
           reviewUrl: 'https://xd.adobe.com/view/813cbece-c467-47ce-67e3-b60caacc2ff8-f70d/',
         }
       })
     ```
-    [How to find your `specUrl` and `reviewUrl`:](https://xd.adobe.com/view/9c3f3303-01b1-444b-6615-52a130609138-ea0e/)
-    
-    [![How To](./Group607.png)](https://xd.adobe.com/view/9c3f3303-01b1-444b-6615-52a130609138-ea0e/)
+   
+## How to make and find your `spec` url.
+
+### Circa 2020
+[Detailed instructions here.](https://xd.adobe.com/view/7377f55a-1dfe-469a-64a2-8a8f8d907c01-0546/?fullscreen) 
+
+In short, create a "Development" url to share. Then view it in a browser, find the specific page you want to use
+in storybook, and copy that URL.
+
+[![How To](./Circa2020.png)](https://xd.adobe.com/view/9c3f3303-01b1-444b-6615-52a130609138-ea0e/)
+
+
+### Circa 2019 you had to get 2 urls
+[Detailed instructions here.](https://xd.adobe.com/view/9c3f3303-01b1-444b-6615-52a130609138-ea0e/) It looks something like this:
+
+[![How To](./Group607.png)](https://xd.adobe.com/view/9c3f3303-01b1-444b-6615-52a130609138-ea0e/)
+
 
 ## Usage
 

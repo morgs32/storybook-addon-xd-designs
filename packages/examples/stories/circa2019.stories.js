@@ -10,21 +10,18 @@ const specUrl = 'https://xd.adobe.com/spec/181eaf80-9e7a-4ea6-7dc8-e21dfd9b2d80-
 
 storiesOf('Examples|withXD', module)
   .addDecorator(withXD)
-  .add('Basic', () => <Button>Button</Button>, {
+  .add('In 2019', () => {
+    return (
+      <>
+        <h1>
+          Back in when you had separate spec url and a review url.
+        </h1>
+        <Button>Button</Button>
+      </>
+    )
+  }, {
     design: config({
       specUrl,
       reviewUrl
     })
   })
-
-
-storiesOf('Internal use only|Tests', module)
-  .addDecorator(withXD)
-  .add('No `design` parameter', () => (
-    <Button>Button</Button>
-  ))
-  .add('Bad config', () => <Button>Button</Button>,
-    {
-      design: {}
-    }
-  )
