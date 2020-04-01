@@ -1,8 +1,8 @@
 /** @jsx jsx */
-import { Fragment, SFC, useEffect, useMemo } from 'react'
+import { Fragment, SFC, useMemo } from 'react'
 import { css, jsx } from '@storybook/theming'
 
-import { XDConfig, IFrameConfigBase } from '../../config'
+import { IFrameConfigBase, XDConfig } from '../../config'
 import { Link, Placeholder } from '@storybook/components'
 
 const _get = require('lodash/get')
@@ -12,17 +12,36 @@ export const parseReviewUrl = (url: string) =>
 export const parseSpecUrl = (url: string) =>
   url && url.match(/https:\/\/xd.adobe.com\/spec\/[0-9a-zA-Z-]{22,128}\/screen\/([0-9a-zA-Z-]{22,128})\/([^\/]*)\/?$/)
 
+export const parseArtboardUrl = (url: string) =>
+  url && url.match(/https:\/\/xd.adobe.com\/view\/([0-9a-zA-Z-]{22,128})\/screen\/([0-9a-zA-Z-]{22,128})\/([^\/]*)\/?$/)
+
 interface Props {
   config: XDConfig
 }
 
 export const XD: SFC<Props> = ({ config }) => {
 
+
   const iframeConfig = useMemo<IFrameConfigBase>(() => {
+
+    if ('artboardUrl' in config) {
+
+      const parsedArtboardUrl = parseArtboardUrl(config.artboardUrl)
+      const viewId = _get(parsedArtboardUrl, '1')
+      const screenId = _get(parsedArtboardUrl, '2')
+      const artboard = _get(parsedArtboardUrl, '3')
+      const isValid = Boolean(viewId && screenId && artboard)
+
+      return {
+        isValid,
+        specUrl: config.artboardUrl,
+        screenUrl: `https://xd.adobe.com/embed/${viewId}/screen/${screenId}/${artboard}?fullscreen`
+      }
+    }
+
 
     const parsedReviewUrl = parseReviewUrl(config.reviewUrl)
     const parsedSpecUrl = parseSpecUrl(config.specUrl)
-
     const reviewId = _get(parsedReviewUrl, '1')
     const screenId = _get(parsedSpecUrl, '1')
     const artboard = _get(parsedSpecUrl, '2')
@@ -34,7 +53,7 @@ export const XD: SFC<Props> = ({ config }) => {
       specUrl: config.specUrl,
       screenUrl
     }
-  }, [config.specUrl, config.reviewUrl, config.embedHost])
+  }, [config])
 
   if (!iframeConfig.isValid) {
     return (
