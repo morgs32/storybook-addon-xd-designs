@@ -14,7 +14,7 @@ storiesOf('Examples|withXD', module)
     return (
       <>
         <h1>
-          Back in when you had separate spec url and a review url.
+          Back in 2019, you had a separate spec url and review url.
         </h1>
         <Button>Button</Button>
       </>
