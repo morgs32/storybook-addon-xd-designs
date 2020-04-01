@@ -1,6 +1,6 @@
 {
   "name": "storybook-addon-xd-designs",
-  "version": "5.4.0",
+  "version": "5.5.0",
   "description": "Storybook addon for embedding your Adobe XD design preview in addon panel",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
