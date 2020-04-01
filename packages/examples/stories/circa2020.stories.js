@@ -13,7 +13,7 @@ storiesOf('Examples|withXD', module)
     return (
       <>
         <h1>
-          Back in when you had separate spec url and a review url.
+          Now, in 2020, we only need one url for the spec
         </h1>
         <Button>Button</Button>
       </>
