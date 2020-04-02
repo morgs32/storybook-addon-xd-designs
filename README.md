@@ -77,7 +77,7 @@ If not, open an issue.
 In short, create a "Development" url to share. Then view it in a browser, find the specific page you want to use
 in storybook, and copy that URL.
 
-[![How To](./Circa2020.png)](https://xd.adobe.com/view/9c3f3303-01b1-444b-6615-52a130609138-ea0e/)
+[![How To](./Circa2020.png)](https://xd.adobe.com/view/7377f55a-1dfe-469a-64a2-8a8f8d907c01-0546/?fullscreen)
 
 
 ### Circa 2019 you had to get 2 urls
