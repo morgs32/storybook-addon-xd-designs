@@ -1,0 +1,26 @@
+{
+  "name": "examples-storybook-6",
+  "version": "5.5.0",
+  "private": true,
+  "dependencies": {
+    "@emotion/core": "^10.0.9",
+    "react": "^16.13.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@storybook/addon-actions": "^6.0.0-beta.25",
+    "@storybook/addon-links": "^6.0.0-beta.25",
+    "@storybook/addon-storysource": "^5.3.19",
+    "@storybook/addons": "^6.0.0-beta.25",
+    "@storybook/react": "^6.0.0-beta.25",
+    "@storybook/theming": "^6.0.0-beta.25",
+    "babel-loader": "^8.0.5",
+    "serve": "^11.3.0",
+    "storybook-addon-xd-designs": "^5.5.0"
+  },
+  "scripts": {
+    "storybook": "start-storybook -p 6006 -s ../assets",
+    "test": "echo 'No tests' && exit 0",
+    "build-storybook": "build-storybook -s ../assets"
+  }
+}
