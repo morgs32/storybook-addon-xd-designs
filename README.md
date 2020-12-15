@@ -2,7 +2,7 @@
   
 [![npm version](https://badge.fury.io/js/storybook-addon-xd-designs.svg)](https://badge.fury.io/js/storybook-addon-xd-designs)
 [![Monthly download](https://img.shields.io/npm/dm/storybook-addon-xd-designs.svg)](https://www.npmjs.com/package/storybook-addon-xd-designs)
-[![GitHub license](https://img.shields.io/github/license/pocka/storybook-addon-xd-designs.svg)](https://github.com/pocka/storybook-addon-xd-designs/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/morgs32/storybook-addon-xd-designs.svg)](https://github.com/morgs32/storybook-addon-xd-designs/blob/master/LICENSE)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
 </div>
