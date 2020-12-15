@@ -65,7 +65,7 @@ export const Wrapper: SFC<Props> = ({ active, api, channel }) => {
         <Fragment>
           Learn how to{' '}
           <Link
-            href="https://github.com/pocka/storybook-addon-xd-designs#usage"
+            href="https://github.com/morgs32/storybook-addon-xd-designs#usage"
             target="_blank"
             rel="noopener"
             withArrow
