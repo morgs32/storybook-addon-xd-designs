@@ -57,5 +57,13 @@
   },
   "publishConfig": {
     "tag": "latest"
+  },
+  "keywords": [
+    "storybook-addon",
+    "design"
+  ],
+  "storybook": {
+    "icon": "https://pbs.twimg.com/profile_images/1272878892232007680/TIM90dV6_400x400.png",
+    "displayName": "Adobe XD"
   }
 }
