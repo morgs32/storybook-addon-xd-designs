@@ -22,6 +22,6 @@ export const withXD = makeDecorator({
  */
 export const config = (c: XDConfig | XDConfig[]) => c
 
-if (module && module.hot && module.hot.decline) {
-  module.hot.decline()
-}
+// if (module && module.hot && module.hot.decline) {
+//   module.hot.decline()
+// }
