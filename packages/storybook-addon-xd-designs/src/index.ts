@@ -14,6 +14,7 @@ const wrapper: StoryWrapper = (getStory, context, { parameters }) => {
 export const withXD = makeDecorator({
   name: 'withXD',
   parameterName: ParameterName,
+  skipIfNoParametersOrOptions: true,
   wrapper
 })
 
@@ -22,6 +23,11 @@ export const withXD = makeDecorator({
  */
 export const config = (c: XDConfig | XDConfig[]) => c
 
-// if (module && module.hot && module.hot.decline) {
-//   module.hot.decline()
-// }
+if (module && module.hot && module.hot.decline) {
+  module.hot.decline()
+}
+
+/**
+ * Useful exports for third party developers
+ */
+export { XDConfig, ParameterName as PARAM_KEY }

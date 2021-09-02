@@ -6,18 +6,20 @@ import { AddonName, PanelName } from '../addon'
 
 import { Wrapper } from './components/Wrapper'
 
-addons.register(AddonName, api => {
-  addons.addPanel(PanelName, {
-    title: 'XD Design',
-    render({ active, key }) {
-      return (
-        <Wrapper
-          key={key}
-          channel={addons.getChannel()}
-          api={api}
-          active={active}
-        />
-      )
-    }
+export default function register() {
+  addons.register(AddonName, api => {
+    addons.addPanel(PanelName, {
+      title: 'XD Design',
+      render({ active, key }) {
+        return (
+          <Wrapper
+            key={key}
+            channel={addons.getChannel()}
+            api={api}
+            active={active}
+          />
+        )
+      }
+    })
   })
-})
+}
