@@ -16,7 +16,7 @@ interface Props {
 
   api: any
 
-  active: boolean
+  active?: boolean
 }
 
 export const Wrapper: SFC<Props> = ({ active, api, channel }) => {

@@ -1,4 +1,5 @@
-/** @jsx jsx */
+/** @jsxRuntime classic /
+ /** @jsx jsx */
 import { css, jsx } from '@emotion/core'
 
 export const Button = props => <button css={button} {...props} />
