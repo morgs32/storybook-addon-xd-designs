@@ -7,6 +7,10 @@
 
 </div>
 
+## 🚧 Repo looking for a good home 🚧
+
+**This addon is being poorly maintained by me and I'm out of touch with how Adobe XD is evolving. Let me know if you'd like to take ownership of this repo and addon (open an issue)**
+
 <hr/>
 
 # storybook-addon-xd-designs
@@ -21,7 +25,8 @@ Adobe XD specs in your addon panel for better design-development workflow.
 
 ## Requirements
 
-- [storybook](https://github.com/storybooks/storybook)@>=5.0.0
+- [storybook](https://github.com/storybooks/storybook)@>=6.0.0
+- If you're using storybook 5... then some older versions might work... open an issue if you want me to find out which?
 
 This addon should work well with any framework.
 If not, open an issue.
