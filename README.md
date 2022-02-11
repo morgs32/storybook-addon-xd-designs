@@ -14,7 +14,7 @@
 A storybook addon that embeds 
 Adobe XD specs in your addon panel for better design-development workflow.
 
-- [Demo](https://morgs32.github.io/storybook-addon-xd-designs)
+- [Demo](https://storybook.js.org/addons/storybook-addon-xd-designs)
 
 ## Credit
 - Forked from https://github.com/pocka/storybook-addon-designs
@@ -43,7 +43,7 @@ If not, open an issue.
     
 2. Register the addon in `addons.js`
     ```js
-    // .storybook/addons.js
+    // .storybook/manager.js
     
     import 'storybook-addon-xd-designs/register'
     ```

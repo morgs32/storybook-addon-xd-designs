@@ -1,1 +1,3 @@
-import './lib/register/index'
+import register from './esm/register/index'
+
+register('panel')
