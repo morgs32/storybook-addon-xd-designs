@@ -1,50 +1,59 @@
 {
   "name": "storybook-addon-xd-designs",
-  "version": "5.5.0",
+  "version": "6.0.0",
   "description": "Storybook addon for embedding your Adobe XD design preview in addon panel",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "types": "esm/index.d.ts",
   "repository": "git@github.com:morgs32/storybook-addon-xd-designs.git",
   "homepage": "https://github.com/morgs32/storybook-addon-xd-designs",
   "author": "morgs32 <morgan.intrator@gmail.com>",
   "license": "MIT",
   "files": [
-    "lib",
-    "register.js"
+    "esm",
+    "cjs",
+    "register.js",
+    "register-tab.js",
+    "preset.js"
   ],
   "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/preset-env": "^7.9.0",
-    "@babel/preset-typescript": "^7.9.0",
-    "@storybook/addons": "^5.0.0",
-    "@storybook/components": "^5.0.0",
-    "@storybook/theming": "^5.0.0",
-    "@types/jest": "^25.1.4",
-    "@types/lodash": "^4.14.149",
-    "@types/pdfjs-dist": "^2.0.0",
-    "@types/react": "^16.9.29",
-    "babel-jest": "^25.2.4",
-    "jest": "^25.2.4",
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/preset-react": "^7.14.5",
+    "@babel/preset-typescript": "^7.15.0",
+    "@storybook/addons": "^6.3.7",
+    "@storybook/components": "^6.3.7",
+    "@storybook/theming": "^6.3.7",
+    "@types/jest": "^27.0.1",
+    "@types/lodash": "^4.14.172",
+    "@types/pdfjs-dist": "^2.7.4",
+    "@types/react": "^17.0.2",
+    "babel-jest": "^27.1.0",
+    "jest": "^27.1.0",
     "lerna": "^3.20.2",
-    "react": "^16.13.1",
-    "typescript": "^3.8.3"
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "typescript": "^4.4.2"
   },
   "peerDependencies": {
-    "@storybook/addons": "^5.0.0",
-    "@storybook/components": "^5.0.0",
-    "@storybook/theming": "^5.0.0",
-    "react": ">=16.8.0"
+    "@storybook/addons": "^6.3.7",
+    "@storybook/components": "^6.3.7",
+    "@storybook/theming": "^6.3.7",
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   },
   "scripts": {
     "dev": "tsc --watch --preserveWatchOutput",
-    "build": "tsc",
+    "build": "npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module commonjs --outDir cjs",
     "test": "jest",
-    "clean": "rm -r lib",
-    "prepublishOnly": "cp ../../README.md ./ && yarn build"
+    "clean": "rm -r cjs",
+    "prepublishOnly": "cp ../../README.md ./ && npm run build"
   },
   "dependencies": {
-    "lodash": "^4.17.11",
-    "react-pdf": "^4.0.5"
+    "lodash": "^4.17.21",
+    "react-pdf": "^5.3.2"
   },
   "publishConfig": {
     "tag": "latest"
